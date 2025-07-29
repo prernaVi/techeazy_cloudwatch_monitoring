@@ -5,8 +5,8 @@
         "collect_list": [
           {
             "file_path": "/home/ec2-user/app.log",
-            "log_group_name": "/ec2/app-logs",
-            "log_stream_name": "{instance_id}-app-log",
+            "log_group_name": "/techeazy/app",
+            "log_stream_name": "{instance_id}",
             "timestamp_format": "%Y-%m-%d %H:%M:%S"
           }
         ]
