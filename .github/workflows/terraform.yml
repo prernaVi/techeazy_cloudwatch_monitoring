@@ -1,0 +1,38 @@
+name: Terraform Validate & Plan
+
+on:
+  push:
+    paths:
+      - '**.tf'
+      - '.github/workflows/**'
+  pull_request:
+
+jobs:
+  terraform:
+    name: Terraform Lint, Init, Validate, Plan
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repo
+      uses: actions/checkout@v3
+
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v2
+      with:
+        terraform_version: 1.7.5  # or your version
+
+    - name: Terraform Format Check
+      run: terraform fmt -check -recursive
+      working-directory: ./monitoring
+
+    - name: Terraform Init
+      run: terraform init
+      working-directory: ./monitoring
+
+    - name: Terraform Validate
+      run: terraform validate
+      working-directory: ./monitoring
+
+    - name: Terraform Plan
+      run: terraform plan -no-color
+      working-directory: ./monitoring
