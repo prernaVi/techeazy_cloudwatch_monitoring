@@ -9,7 +9,7 @@ on:
 
 jobs:
   terraform:
-    name: Terraform Lint, Init, Validate, Plan
+    name: Terraform Checks
     runs-on: ubuntu-latest
 
     steps:
@@ -19,7 +19,7 @@ jobs:
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v2
       with:
-        terraform_version: 1.7.5  # or your version
+        terraform_version: 1.7.5
 
     - name: Terraform Format Check
       run: terraform fmt -check -recursive
