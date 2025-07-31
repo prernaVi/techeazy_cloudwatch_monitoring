@@ -1,1 +1,6 @@
 .terraform/
+*.tfstate
+*.tfstate.backup
+*.log
+*.zip
+*.exe
